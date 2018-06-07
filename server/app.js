@@ -1,28 +1,19 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
+const path = require('path');
+// const mongoose = require('mongoose');
 
 const userRoutes = require('./api/routes/user');
 
+// Middleware serves the static angular files.
+app.use('/', express.static(path.join(__dirname, '../dist')))
+
+//API
 app.use('/user', userRoutes);
 
-// Middleware the serve the static angular files.
-
-//
-
-app.use((req, res, next) => {
-    const error = new Error('Not Found');
-    error.status = 404;
-    next(error);
-});
-
-app.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    res.json({
-        error: {
-            message: error.message
-        }
-    })
+// Send all other requests to the Angular app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 module.exports = app;
