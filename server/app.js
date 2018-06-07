@@ -1,13 +1,28 @@
-require('dotenv').config()
 const express = require('express');
-const path = require('path');
-
-const port = process.env.PORT || '3000';
 const app = express();
-    
-app.use('/', express.static(path.join(__dirname, '../dist')));
+const mongoose = require('mongoose');
 
-app.listen(port, function() {
-    console.log(`Listening on port ${port}!`);
-  });
-  
+const userRoutes = require('./api/routes/user');
+
+app.use('/user', userRoutes);
+
+// Middleware the serve the static angular files.
+
+//
+
+app.use((req, res, next) => {
+    const error = new Error('Not Found');
+    error.status = 404;
+    next(error);
+});
+
+app.use((error, req, res, next) => {
+    res.status(error.status || 500);
+    res.json({
+        error: {
+            message: error.message
+        }
+    })
+});
+
+module.exports = app;
