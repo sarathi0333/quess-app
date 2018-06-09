@@ -49,6 +49,10 @@ input {
     margin-top: 6%;
     cursor: pointer;
 }
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+ }
 .form-control:focus{
     -webkit-box-shadow: none;
     box-shadow: none;

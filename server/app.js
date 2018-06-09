@@ -6,14 +6,15 @@ const path = require('path');
 const userRoutes = require('./api/routes/user');
 
 // Middleware serves the static angular files.
-app.use('/', express.static(path.join(__dirname, '../dist')))
+console.log(__dirname);
+app.use('/', express.static(path.join(__dirname, '../frontend/dist')))
 
 //API
-app.use('/user', userRoutes);
+app.use('/api', userRoutes);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist/index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 module.exports = app;

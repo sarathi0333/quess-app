@@ -10,14 +10,15 @@
       <div class="login-form-container">
         <div>
           <h1>Sign in</h1>
-          <form action="">
+          <form (ngSubmit)="onSubmit(phNumber.value)" #signinForm="ngForm">
             <div class="form-group row">
               <div class="col-8 col-sm-8 col-md-8 form-wrapper">
                   <label for="name">Please fill in your Phone number</label>
-                  <input type="tel" class="form-control login-phn" id="name" maxlength="10" size = "10" required autocomplete="off">    
+                  <input type="tel" class="form-control login-phn" name="phNumber" #phNumber ngModel maxlength="10"
+                    required autocomplete="off" [pattern]="phnPattern">    
               </div>
             </div>
-            <button type="submit" class="submit-btn">Next</button>
+            <button type="submit" class="btn submit-btn" [disabled]="!signinForm.valid">Next</button>
           </form>
         </div>
       </div>
