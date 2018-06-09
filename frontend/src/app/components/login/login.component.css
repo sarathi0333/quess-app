@@ -1,0 +1,94 @@
+.login-left-col {
+    background-color: #0095da;
+}
+.login-left-col div {
+    padding-left: 14.5%;
+    padding-right: 14.5%;
+    padding-top: 45%;
+    padding-bottom: 45.5%;
+}
+.login-form-container {
+    padding-top: 36%;
+}
+h1, label, input, .submit-btn, a {
+    font-family: Calibri;
+    font-weight: 100;
+}
+h1 {
+    color: #0095da;
+    font-size: 3.5vw;
+    margin: 0;
+}
+.form-wrapper {
+    margin-top: 4%;
+}
+label {
+    font-size: 2.2vw;
+}
+.login-phn {
+    margin-top: 1%;
+    border: 0;
+    border-radius: 0;
+    padding-bottom: 1.5%;
+    padding-left: 0;
+    padding-top: 0;
+    border-bottom: 2px solid #0095da;
+}
+input {
+    font-size: 1.85vw;
+    color: #555858;
+}
+.submit-btn {
+    color: white;
+    background: #0095da;
+    border: 0;
+    width: 25%;
+    font-size: 1.75vw;
+    border-radius: 10px;
+    height: 5.85vh;
+    margin-top: 6%;
+    cursor: pointer;
+}
+.form-control:focus{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.login-footer {
+    margin-top: 24%;
+    padding-right: 3%;
+    float: left;
+    width: 100%;
+}
+.login-footer a {
+    font-size: 1.75vw;
+    color: #555858;
+}
+.login-footer div:nth-child(1) {
+    padding-top: 7%;
+}
+.logo-wrapper {
+    width: 20%;
+    text-align: right;
+}
+@media (max-width: 575.98px) {
+    /* Login Component */
+    h1 {
+        font-size: 5.5vw; 
+    }
+    label {
+        font-size: 4.2vw;
+    }
+    input {
+        font-size: 3.85vw;
+    }
+    .submit-btn {
+        font-size: 3.75vw;
+        height: 3.8vh;
+    }
+    .login-footer a {
+        font-size: 3.75vw;
+    }
+    .login-footer div:nth-child(1) {
+        padding-top: 6%;
+    }
+}
