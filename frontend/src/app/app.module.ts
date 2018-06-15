@@ -10,12 +10,14 @@ import { LoginComponent } from './components/login/login.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 import { NetworkService } from './services/network.service';
+import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AdminpanelComponent
   ],
   imports: [
     BrowserModule,

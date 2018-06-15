@@ -1,7 +1,7 @@
 .welcome-wrapper {
     background-image: url("./../../../assets/images/bg1.png");
     background-repeat: no-repeat;
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
     min-height: 768px;
 }
 .welcome-wrapper div:nth-child(1) {
