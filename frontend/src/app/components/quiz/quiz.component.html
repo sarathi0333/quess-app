@@ -1,0 +1,22 @@
+<div class="container-fluid question-wrapper">
+  <div class="row justify-content-sm-center">
+    <button class="btn ques-num">Question : 1 / 50</button>
+  </div>
+  <div class="row question justify-content-sm-center text-center">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+      dummy text ever since the 1500s, when an unknown printer took a galley </p>
+  </div>
+  <div class="row answer">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let option of options" (click)="activateClass(option)" [ngClass]="{'checked': option.active}">{{option.answer}}</li>
+    </ul>
+  </div>
+  <div class="row justify-content-between ques-submit">
+    <button class="btn nxt-btn">Next</button>
+    <button class="btn time-btn">01</button>
+  </div>
+  <div class="row justify-content-sm-center audio-section">
+    <img src="./../../../assets/images/audio.png">
+    <span>&nbsp;&nbsp;Click here for Audio</span>
+  </div>
+</div>

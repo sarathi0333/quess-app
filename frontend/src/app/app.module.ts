@@ -11,13 +11,15 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 import { NetworkService } from './services/network.service';
 import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WelcomeComponent,
-    AdminpanelComponent
+    AdminpanelComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

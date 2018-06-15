@@ -7,7 +7,7 @@ const userRoutes = require('./api/routes/user');
 
 // Middleware serves the static angular files.
 console.log(__dirname);
-app.use('/', express.static(path.join(__dirname, '../frontend/dist')))
+app.use('/', express.static(path.join(__dirname, '../frontend/dist/index.html')))
 
 //API
 app.use('/api', userRoutes);

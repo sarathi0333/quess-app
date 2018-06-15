@@ -1,0 +1,60 @@
+.question-wrapper {
+    background-image: url('./../../../assets/images/quess_bg.png');
+    background-repeat: no-repeat;
+    padding-top: 5.5%;  
+    font-family: Calibri;
+    font-weight: 100;
+}
+.ques-num {
+    background: linear-gradient(45deg, #3267b1, #2babe2);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.97vw;
+    width: 19%;
+    border: 0;
+    letter-spacing: 0.0625em;   
+}
+.question, .answer, .ques-submit {
+    margin-top: 1.5%;
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 1.75vw;
+}
+.answer ul {
+    width: 100%;
+}
+.answer ul li {
+    margin-bottom: 2.7%;
+    /* border-radius: 10px; */
+    border: 3px solid black;
+    background: transparent;
+} 
+.checked {
+    /* border-color: #3267b1 !important; */
+    color: #3267b1;
+    border-image: url("./../../../assets/images/border.png") 10 stretch !important;
+    border-image-source: linear-gradient(45deg, #3267b1, #2babe2 ) !important;
+    /* border-radius: 10px !important; */
+}
+.nxt-btn {
+    color: white;
+    background: #0095da;
+    border: 0;
+    width: 12.66vw;
+    font-size: 1.75vw;
+    border-radius: 10px;
+    height: 5.85vh;
+    cursor: pointer;
+}
+.time-btn {
+    color: white;
+    background: #0095da;
+    border: 0;
+    border-radius: 50%;
+    letter-spacing: 0.0625em;
+}
+.audio-section {
+    margin-top: 2%;
+    color: #da0005;
+    font-size: 1.75vw;
+}
