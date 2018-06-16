@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 login-left-col">
+      <div>
+        <img src="./../../../assets/images/anaysis.png" class="img-fluid" alt="" >
+      </div>
+    </div>
+    <div class="offset-md-1"></div>
+    <div class="col-md-6">
+      <div class="login-form-container">
+        <div>
+          <h1>Sign in</h1>
+          <form (ngSubmit)="onSubmit(phNumber.value)" #signinForm="ngForm">
+            <div class="form-group row">
+              <div class="col-8 col-sm-8 col-md-8 form-wrapper">
+                  <label for="name">Please fill in your Phone number</label>
+                  <input type="tel" class="form-control login-phn" name="phNumber" #phNumber ngModel maxlength="10"
+                    required autocomplete="off" [pattern]="phnPattern">    
+              </div>
+            </div>
+            <button type="submit" class="btn submit-btn" [disabled]="!signinForm.valid">Next</button>
+          </form>
+        </div>
+      </div>
+      <div class="login-footer">
+        <div class="float-left">
+          <a routerLink="/admin" style="color: red;">Sign in as admin</a>
+        </div>
+        <div class="float-right logo-wrapper">
+          <img src="./../../../assets/images/logo.png" class="img-fluid" alt="Quess logo" >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
