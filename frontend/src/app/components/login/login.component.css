@@ -34,6 +34,15 @@ label {
     padding-top: 0;
     border-bottom: 2px solid #0095da;
 }
+.username, .password {
+    margin-top: 1%;
+    border: 0;
+    border-radius: 0;
+    padding-bottom: 1.5%;
+    padding-left: 0;
+    padding-top: 0;
+    border-bottom: 2px solid #0095da;
+}
 input {
     font-size: 1.85vw;
     color: #555858;
@@ -66,6 +75,7 @@ button:disabled {
 .login-footer a {
     font-size: 1.75vw;
     color: #555858;
+    cursor: pointer;
 }
 .login-footer div:nth-child(1) {
     padding-top: 7%;
@@ -73,6 +83,9 @@ button:disabled {
 .logo-wrapper {
     width: 20%;
     text-align: right;
+}
+.admin {
+    padding-top: 13.5%;
 }
 @media (max-width: 575.98px) {
     /* Login Component */

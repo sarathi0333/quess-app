@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  phnPattern = "^[0-9]{10}$";
+  phnPattern:string = "^[0-9]{10}$";
+  user:boolean = true;
+  form:string = "admin"
 
   constructor(private networkservice: NetworkService, private router: Router) { }
 
@@ -24,6 +26,25 @@ export class LoginComponent implements OnInit {
       // store the seesion in the session storage
       this.router.navigate(['/welcome']);
     })
+  }
+
+  onSubmitAdmin(adminUsername: string, adminPassword: string) {
+    this.networkservice.postMessage('./api/admin', {username: adminUsername, password: adminPassword})
+    .subscribe((response: any) => {
+      if(response.status == "success") {
+        localStorage.clear();
+        localStorage.setItem("token", response.data.token);
+        this.router.navigate(['/admin']);
+      }
+    })
+  }
+
+  swap() {
+    if(this.form == "admin") {
+      this.form = "user";
+    } else {
+      this.form ="admin";
+    }
   }
 
 }
