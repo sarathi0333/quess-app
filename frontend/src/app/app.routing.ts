@@ -11,5 +11,4 @@ export const AppRoutes: Routes = [
     { path: 'welcome', component: WelcomeComponent },
     { path: 'admin', component: AdminpanelComponent},
     { path: 'quiz', component: QuizComponent}
-
 ];
