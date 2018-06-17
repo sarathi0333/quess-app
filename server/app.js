@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 
-const userRoutes = require('./api/routes/user');
+const userRoutes = require('./api/routes/users');
 const adminRoutes = require('./api/routes/admin');
 
 // parse application/x-www-form-urlencoded
