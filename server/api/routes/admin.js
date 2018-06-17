@@ -12,7 +12,6 @@ const password = "282d9dc36935434f021288dac34e6745"; //Asdfg!23
 router.post('/admin', (req, res, next) => {
     var decipher = crypto.createDecipher('aes192', 'codepixer');
     var decryptedPassword = decipher.update(password, 'hex', 'utf8') + decipher.final('utf8');
-    console.log(decryptedPassword);
     if(username == req.body.username && decryptedPassword == req.body.password) {
         const token = jwt.sign({
             username: req.body.username,
@@ -22,7 +21,7 @@ router.post('/admin', (req, res, next) => {
         res.status(200).json({
             status: "success", 
             data: {
-                message: "valid user",
+                user: username,
                 token: token
             }})
     } else {

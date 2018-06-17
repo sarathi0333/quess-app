@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     .subscribe((response: any) => {
       if(response.status == "success") {
         localStorage.clear();
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem('quess', JSON.stringify(response.data));
         this.router.navigate(['/admin']);
       }
     })

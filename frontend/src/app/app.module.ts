@@ -10,11 +10,14 @@ import { LoginComponent } from './components/login/login.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 import { NetworkService } from './services/network.service';
+import { AuthService } from './auth/auth.service';
 import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { SortGradePipe } from './components/adminpanel/pipes/sort-grade.pipe';
 import { SortDatePipe } from './components/adminpanel/pipes/sort-date.pipe';
 import { SortZonePipe } from './components/adminpanel/pipes/sort-zone.pipe';
+
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { SortZonePipe } from './components/adminpanel/pipes/sort-zone.pipe';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [NetworkService],
+  providers: [NetworkService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

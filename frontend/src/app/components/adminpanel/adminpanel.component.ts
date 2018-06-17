@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminpanel',
@@ -48,7 +49,7 @@ export class AdminpanelComponent implements OnInit {
   sortGradeSatus : boolean = false;
   sortDateStatus : boolean = false;
   sortZoneStatus : boolean = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -61,5 +62,10 @@ export class AdminpanelComponent implements OnInit {
   }
   swapZone() {
     this.sortZoneStatus = !this.sortZoneStatus;
+  }
+
+  logout() {
+    localStorage.removeItem("quess");
+    this.router.navigate(['/login']);
   }
 }
