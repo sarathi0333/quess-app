@@ -3,6 +3,7 @@ const app = express ();
 const router = express.Router();
 const crypto = require('crypto');
 var jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 //dev
 const username = "admin";
