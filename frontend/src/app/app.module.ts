@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
@@ -18,6 +19,7 @@ import { SortDatePipe } from './components/adminpanel/pipes/sort-date.pipe';
 import { SortZonePipe } from './components/adminpanel/pipes/sort-zone.pipe';
 
 import { AuthGuard } from './auth/auth.guard';
+import { UploadComponent } from './components/adminpanel/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { AuthGuard } from './auth/auth.guard';
     QuizComponent,
     SortGradePipe,
     SortDatePipe,
-    SortZonePipe
+    SortZonePipe,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
+    NgbModule.forRoot()
   ],
   providers: [NetworkService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 .question-wrapper {
     background-image: url('./../../../assets/images/quess_bg.png');
     background-repeat: no-repeat;
-    padding-top: 5.5%;  
+    padding-top: 2.5%;  
     font-family: Calibri;
     font-weight: 100;
 }
@@ -45,6 +45,7 @@
     border-radius: 10px;
     height: 5.85vh;
     cursor: pointer;
+    line-height: 10px;
 }
 .time-btn {
     color: white;
