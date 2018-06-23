@@ -1,4 +1,5 @@
 var jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 module.exports = (req, res, next) => {
     try {
@@ -7,7 +8,10 @@ module.exports = (req, res, next) => {
         next();
     } catch(err) {
         return res.status(401).json({
-            message: "auth failed"
+            status: "failure",
+            data: {
+                message: "Authentication Failed"
+            }
         })
     }
 }

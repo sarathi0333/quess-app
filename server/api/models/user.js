@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const userDetailsSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    zone_id: { type: mongoose.Schema.Types.ObjectId, ref: 'ZoneDetails', required: true },
+    _id: { type: Number, required: true },
+    zone_id: { type: String, ref: 'ZoneDetails', required: true },
     first_name: { type: String, required: true },
     middle_name: String,
     last_name: String,

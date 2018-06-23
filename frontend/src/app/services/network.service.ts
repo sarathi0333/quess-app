@@ -15,14 +15,14 @@ export class NetworkService {
 
   constructor(private http: HttpClient) { }
 
-  postMessage (url: string, data: object): Observable<any> {
+  postMessage(url: string, data: object): Observable<any> {
     return this.http.post(url, data, httpOptions).pipe(
-      tap((response) => {}),
+      tap((response) => { }),
       catchError(this.handleError('post msg'))
     )
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);

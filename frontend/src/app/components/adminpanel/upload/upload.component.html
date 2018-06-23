@@ -1,21 +1,16 @@
+<input type="file" #file (change)="onFilesAdded(content)" style="display: none">
+<button class="btn import-btn" (click)="addFiles()">Import</button>
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title">Import</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      <h4 class="modal-title">Upload Satus <span [class]=uploadStatus>{{uploadStatus}}</span></h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <div class="modal-body">
-        <div class="container">
-            <h1>Upload File</h1>
-            <div>
-                <input type="file" #file (change)="onFilesAdded()">
-                <button (click)="addFiles()" class="btn btn-primary">Add File</button>
-            </div>
-        </div>
+      <p>Message: {{popupMsg}}</p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+      <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
     </div>
-</ng-template>
-<button class="btn import-btn" (click)="openLg(content)">Import</button>
+  </ng-template>
