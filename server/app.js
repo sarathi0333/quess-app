@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const userRoutes = require('./api/routes/users');
 const adminRoutes = require('./api/routes/admin');
+const loginRoutes = require('./api/routes/login');
 
 //mongoose connect
 mongoose.connect(process.env.MongoDB_URL, (err) => {
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 //API
 app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
+app.use('/api', loginRoutes);
 
 // Middleware serves the static angular files.
 app.use('/', express.static(path.join(__dirname, '../frontend/dist')))

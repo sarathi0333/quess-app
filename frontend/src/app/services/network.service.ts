@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -22,9 +22,19 @@ export class NetworkService {
     )
   }
 
+  getMessage(url: string, params: any): Observable<any> {
+    let param = new HttpParams();
+    param = param.append('user', params.user_id);
+    param = param.append('lang', params.lang);
+    const httpOptions = new HttpHeaders({ 'Authorization': `Bearer ${params.token}` })
+    return this.http.get(url, { headers: httpOptions, params: param }).pipe(
+      tap((response) => { }),
+      catchError(this.handleError('post msg'))
+    )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error);
       return of(result as T);
     };
   }

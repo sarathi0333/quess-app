@@ -26,7 +26,7 @@ router.post('/admin', (req, res, next) => {
                 token: token
             }})
     } else {
-        res.status(401).json({status: "failure", data: {message: "invalid user"}});
+        res.status(200).json({status: "failure", data: {message: "invalid user"}});
     }
 });
 

@@ -6,8 +6,9 @@
     <p>The time given for one question can be either 30 seconds or 60 seconds depending on the difficulty</p>
     <p>You can only move to the next question after answering the current one</p>
     <p class="lang">You can select from around 60 Languages</p>
-    <select [(ngModel)]="langOption" class="choose-lang">
-      <option [value]="language" *ngFor="let language of languages">{{language}}</option>
+    <select class="choose-lang" #langOption (change) = "onlangSelect(langOption)">
+      <!-- <option [value]="language" *ngFor="let language of languages; let i=index">{{language}}</option> -->
+      <option value="{{i}}" *ngFor="let language of languages; let i=index">{{language.language}}</option>
     </select>
   </div>
   <div class="welcome-footer">

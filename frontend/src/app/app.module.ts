@@ -12,6 +12,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 import { NetworkService } from './services/network.service';
 import { AuthService } from './auth/auth.service';
+import { DataService } from './services/data/data.service';
 import { AdminpanelComponent } from './components/adminpanel/adminpanel.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { SortGradePipe } from './components/adminpanel/pipes/sort-grade.pipe';
@@ -20,6 +21,7 @@ import { SortZonePipe } from './components/adminpanel/pipes/sort-zone.pipe';
 
 import { AuthGuard } from './auth/auth.guard';
 import { UploadComponent } from './components/adminpanel/upload/upload.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { UploadComponent } from './components/adminpanel/upload/upload.component
     SortGradePipe,
     SortDatePipe,
     SortZonePipe,
-    UploadComponent
+    UploadComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { UploadComponent } from './components/adminpanel/upload/upload.component
     RouterModule.forRoot(AppRoutes),
     NgbModule.forRoot()
   ],
-  providers: [NetworkService, AuthService, AuthGuard],
+  providers: [NetworkService, AuthService, AuthGuard, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

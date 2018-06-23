@@ -134,16 +134,16 @@ router.post('/user', checkAuth, upload.single('userData'), (req, res, next) => {
 });
 
 //router test user data
-router.get('/userdetails', (req, res, next) => {
-    LoginDetails.find()
-        .populate('user_id')
-        .exec()
-        .then(doc => {
-            res.status(200).json(doc);
-        })
-        .catch(err => {
-            res.status(200).json(err);
-        })
-})
+// router.get('/userdetails', (req, res, next) => {
+//     LoginDetails.find()
+//         .populate('user_id')
+//         .exec()
+//         .then(doc => {
+//             res.status(200).json(doc);
+//         })
+//         .catch(err => {
+//             res.status(200).json(err);
+//         })
+// })
 
 module.exports = router;
