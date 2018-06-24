@@ -3,6 +3,7 @@ import { ScrollTopService } from './../../services/shared/scrollToTop/scroll-top
 import { Router } from '@angular/router';
 
 import { NetworkService } from './../../services/network.service';
+import { DataService } from './../../services/data/data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -14,39 +15,66 @@ export class WelcomeComponent implements OnInit {
 
   languages = [{
     language: "English",
-    inEng: "English",
-    option: 1
+    inEng: "English"
   }, {
     language: "தமிழ்",
-    inEng: "Tamil",
-    option: 2
+    inEng: "Tamil"
   }, {
     language: "मराठी",
     inEng: "Marathi",
-    option: 3
+  }, {
+    language: "ਪੰਜਾਬੀ",
+    inEng: "Punjabi",
+  }, {
+    language: "کأشُر‬",
+    inEng: "Kashmiri",
+  }, {
+    language: "മലയാളം",
+    inEng: "Malayalam",
+  }, {
+    language: "ଓଡ଼ିଆ",
+    inEng: "Oriya",
+  }, {
+    language: "বাংলা",
+    inEng: "Bengali",
+  }, {
+    language: "অসমীয়া",
+    inEng: "Assamese",
+  }, {
+    language: "ಕನ್ನಡ",
+    inEng: "Kannada",
+  }, {
+    language: "తెలుగు",
+    inEng: "Telugu",
+  }, {
+    language: "ગુજરાતી",
+    inEng: "Gujarati",
+  }, {
+    language: "हिन्दी",
+    inEng: "Hindi",
   }]
-  slectedLanguage: Number = 1;
-  constructor(private scrollToTop: ScrollTopService, private router: Router, private networkservice: NetworkService) { }
+  slectedLanguage: number = 0;
+  details: object;
+
+  constructor(private scrollToTop: ScrollTopService,
+    private router: Router,
+    private networkservice: NetworkService,
+    private dataservice: DataService
+  ) { }
 
   ngOnInit() {
     this.scrollToTop.setScrollTop();
+    this.dataservice.currentDetail.subscribe(data => this.details = data);
   }
 
   onlangSelect(langOption) {
+    console.log(langOption.value);
     this.slectedLanguage = langOption.value;
   }
 
   startTest() {
-    var userData = sessionStorage.getItem('user');
-    let userDatatojson = JSON.parse(userData);
-    this.networkservice.getMessage('/api/login', { 
-      lang: this.slectedLanguage, 
-      user_id: userDatatojson.user_id,
-      token: userDatatojson.token
-     }).subscribe(response => {
-      console.log(response);
-    })
-    this.router.navigate(['/quiz']);
+    sessionStorage.setItem('language', this.slectedLanguage.toString());
+    this.router.navigate(['/details']);
   }
 
 }

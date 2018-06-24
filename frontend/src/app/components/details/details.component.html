@@ -1,3 +1,105 @@
-<p>
-  details works!
-</p>
+<div class="container">
+  <div>
+    <h1>{{'form.demographics' | translate}}</h1>
+  </div>
+  <form>
+    <div class="form-group row">
+      <label for="" class="col-sm-4 col-form-label">{{'form.name' | translate}}</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)] = "details.first_name" name="firstName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="" class="col-sm-4 col-form-label">{{'form.age' | translate }}</label>
+      <div class="col-sm-6">
+        <input type="number" class="form-control" name="age" [(ngModel)] = "details.age">
+      </div>
+    </div>
+    <div class="form-group row">
+    <label for="" class="col-sm-4 col-form-label">{{'form.gender.value' | translate }}</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+        <label class="form-check-label" for="exampleRadios1">
+          {{'form.gender.option1' | translate}}
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+        <label class="form-check-label" for="exampleRadios1">
+          {{'form.gender.option2' | translate}}
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+        <label class="form-check-label" for="exampleRadios1">
+          {{'form.gender.option3' | translate}}
+        </label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="" class="col-sm-4 col-form-label">{{'form.work_exp' | translate}}</label>
+      <div class="col-sm-6">
+        <input type="number" class="form-control" name="worExp" [(ngModel)] = "details.work_exp">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label">{{'form.marital_status.value' | translate }}</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              {{'form.marital_status.option1' | translate}}
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              {{'form.marital_status.option2' | translate}}
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              {{'form.marital_status.option3' | translate}}
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+              <label class="form-check-label" for="exampleRadios1">
+                {{'form.marital_status.option4' | translate}}
+              </label>
+            </div>
+        </div>
+    <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label">{{'form.no_of_children' | translate}}</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" [(ngModel)] = "details.no_of_children" name="noChildren">
+        </div>
+      </div>
+      <div class="form-group row">
+          <label for="" class="col-sm-4 col-form-label">{{'form.native_place' | translate}}</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)] = "details.native_place" name="birthPlace">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="" class="col-sm-4 col-form-label">{{'form.reason' | translate}}</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" name="reason" [(ngModel)] = "details.reason_for_leaving_job">
+            </div>
+          </div>
+          <div class="form-group row">
+              <label for="" class="col-sm-4 col-form-label">{{'form.police_record' | translate}}</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="police_record" [(ngModel)] = "details.past_Police_Record">
+              </div>
+            </div>
+  </form>
+  <div class="row">
+    <div class="col-sm-2">
+      <button class="btn btn-success">Save</button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-primary" (click)="tempNext()">Next</button>
+      </div>
+  </div>
+</div>

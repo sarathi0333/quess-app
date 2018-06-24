@@ -1,0 +1,25 @@
+{
+    "form": {
+        "demographics": "PART – A – DEMOGRAPHICS",
+        "name": "Name",
+        "age": "Age (in years)",
+        "gender": {
+            "value": "Gender",
+            "option1": "Male",
+            "option2": "Female",
+            "option3": "Others"
+        },
+        "work_exp": "Work experience (in years)",
+        "marital_status": {
+            "value": "Marital Status",
+            "option1": "Single",
+            "option2": "Married",
+            "option3": "Divorced",
+            "option4": "Widowed"
+        },
+        "no_of_children": "No: of children",
+        "native_place": "Native place",
+        "reason": "Reason for applying to this job",
+        "police_record": "Do you have any past police record of yours or any family members"
+    }
+}

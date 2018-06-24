@@ -4,8 +4,8 @@ var jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 var LoginDetails = require('../models/logindetail');
+var UserDetails = require('./../models/user');
 var checkAuth = require('./../middleware/check-auth-user');
-
 
 router.post('/login', (req, res) => {
     LoginDetails.find({ user_id: req.body.phoneNumber }, (err, doc) => {
@@ -21,8 +21,8 @@ router.post('/login', (req, res) => {
             const token = jwt.sign({
                 user_id: req.body.phoneNumber
             }, process.env.USER_JWT_KEY, {
-                expiresIn: '1h'
-            })
+                    expiresIn: '1h'
+                })
             res.status(200).json({
                 status: "success",
                 data: {
@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
                     }
                 }
             })
-        } else if(doc.length === 0) {
+        } else if (doc.length === 0) {
             res.status(200).json({
                 status: "failure",
                 data: {
@@ -47,6 +47,31 @@ router.post('/login', (req, res) => {
 })
 router.get('/login', checkAuth, (req, res) => {
     console.log(req.query);
+    UserDetails.find({ _id: req.query.user }, (err, doc) => {
+        if (err) {
+            res.status(401).json({
+                status: "failure",
+                data: {
+                    message: err.message
+                }
+            })
+        } else if (doc.length > 0) {
+            res.status(200).json({
+                status: "success",
+                data: {
+                    message: "user authenticated",
+                    details: doc[0]
+                }
+            })
+        } else {
+            res.status(401).json({
+                status: "failure",
+                data: {
+                    message: "Invalid user"
+                }
+            })
+        }
+    })
 });
 
 module.exports = router;
