@@ -4,6 +4,7 @@ const multer = require('multer');
 var XLSX = require('xlsx');
 var mongoose = require('mongoose');
 const checkAuth = require('./../middleware/check-auth');
+var array = require('lodash/array');
 
 //Model
 var ZoneDetails = require('./../models/zone');
@@ -34,6 +35,17 @@ router.post('/user', checkAuth, upload.single('userData'), (req, res, next) => {
     var workbook = XLSX.readFile('./uploads/' + req.file.filename);
     var sheet_name_list = workbook.SheetNames;
     var data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
+    var keys = Object.keys(data[0]);
+    orginalKey = ["sl_no", "first_name", "middle_name", "last_name", "mobile", "zone_id", "site_id", "site_name", "age", "gender", "work_exp", "marital_status", "no_of_children", "native_place", "reason_for_leaving_job", "past_police_record", "police_record_description"];
+    if (array.difference(orginalKey, keys).length > 0) {
+        res.locals.templateerr = {
+            status: "failure",
+            data: {
+                message: "wrong template. kindly check the template"
+            }
+        }
+        next();
+    }
     var zoneData = [{
         Zone01: "Chennai",
         Site01: "Adyar"
@@ -121,8 +133,10 @@ router.post('/user', checkAuth, upload.single('userData'), (req, res, next) => {
         };
     })
 }, (req, res, next) => {
-    if(res.locals.finalResponase) {
+    if (res.locals.finalResponase) {
         res.status(200).json(res.locals.finalResponase);
+    } else if (res.locals.templateerr) {
+        res.status(200).json(res.locals.templateerr);
     } else {
         res.status(200).json({
             status: "failure",
