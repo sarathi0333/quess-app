@@ -1,0 +1,25 @@
+{
+    "form": {
+        "demographics": "অংশ – এ – জনসংখ্যা সম্পৰ্কীয়",
+        "name": "নাম",
+        "age": "বয়স (বছৰত)",
+        "gender": {
+            "value": "লিংগ",
+            "option1": "Male",
+            "option2": "Female",
+            "option3": "Others"
+        },
+        "work_exp": "কৰ্ম অভিজ্ঞতা (বছৰত)",
+        "marital_status": {
+            "value": "বৈবাহিক স্থিতি",
+            "option1": "Single",
+            "option2": "Married",
+            "option3": "Divorced",
+            "option4": "Widowed"
+        },
+        "no_of_children": "সন্তানৰ সংখ্যা",
+        "native_place": "বাসস্থান",
+        "reason": "কামটোত আবেদন কৰাৰ কাৰণ",
+        "police_record": "আপোনাৰ বা আপোনাৰ পৰিয়ালৰ কাৰোবাৰ অতীতৰ পুলিচ ৰেকৰ্ড আছেনে"
+    }
+}

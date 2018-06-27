@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  details: object;
-  i18n = ["en", "tn"];
+  details: any;
+  i18n = ["en", "tn", "ma", "pu", "ja", "ke", "or", "bn", "as", "ka", "ap", "gu", "hi"];
   first_name: string;
   constructor(private data: DataService, 
     private networkservice: NetworkService, 
