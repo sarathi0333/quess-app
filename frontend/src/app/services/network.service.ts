@@ -33,6 +33,15 @@ export class NetworkService {
     )
   }
 
+  updateMessag(url: string, data: object, params: any): Observable<any> {
+    let param = new HttpParams();
+    const httpOptions = new HttpHeaders({ 'Authorization': `Bearer ${params.token}` })
+    return this.http.put(url, data, { headers: httpOptions, params: param } ).pipe(
+      tap(response => {}),
+      catchError(this.handleError('post msg'))
+    )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       return of(result as T);

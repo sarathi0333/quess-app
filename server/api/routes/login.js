@@ -47,31 +47,69 @@ router.post('/login', (req, res) => {
 })
 router.get('/login', checkAuth, (req, res) => {
     console.log(req.query);
-    UserDetails.find({ _id: req.query.user }, (err, doc) => {
-        if (err) {
-            res.status(401).json({
+    UserDetails.find({ _id: req.query.user })
+        .select('first_name middle_name last_name age gender work_exp marital_status no_of_children native_place reason_for_leaving_job past_Police_Record police_record_description')
+        .exec((err, doc) => {
+            if (err) {
+                res.status(401).json({
+                    status: "failure",
+                    data: {
+                        message: err.message
+                    }
+                })
+            } else if (doc.length > 0) {
+                res.status(200).json({
+                    status: "success",
+                    data: {
+                        message: "user authenticated",
+                        details: doc[0]
+                    }
+                })
+            } else {
+                res.status(401).json({
+                    status: "failure",
+                    data: {
+                        message: "Invalid user"
+                    }
+                })
+            }
+        });
+});
+
+router.put('/login', checkAuth, (req, res) => {
+    // let query = { _id: req.body._id };
+    UserDetails.findByIdAndUpdate(req.body._id, {
+        $set: {
+            first_name: req.body.first_name,
+            middle_name: req.body.middle_name,
+            last_name: req.body.last_name,
+            age: req.body.age,
+            gender: req.body.gender,
+            work_exp: req.body.work_exp,
+            marital_status: req.body.marital_status,
+            no_of_children: req.body.no_of_children,
+            native_place: req.body.native_place,
+            reason_for_leaving_job: req.body.reason_for_leaving_job,
+            past_Police_Record: req.body.past_Police_Record,
+            police_record_description: req.body.police_record_description
+        }
+    }, {new: true})
+    .select('first_name middle_name last_name age gender work_exp marital_status no_of_children native_place reason_for_leaving_job past_Police_Record police_record_description')
+    .exec(((err, doc) => {
+        if(err) {
+            res.json({
                 status: "failure",
                 data: {
-                    message: err.message
-                }
-            })
-        } else if (doc.length > 0) {
-            res.status(200).json({
-                status: "success",
-                data: {
-                    message: "user authenticated",
-                    details: doc[0]
+                    message: "unable to save the changes"
                 }
             })
         } else {
-            res.status(401).json({
-                status: "failure",
-                data: {
-                    message: "Invalid user"
-                }
-            })
+            res.json({
+                status: "success",
+                data: doc
+            });
         }
-    })
-});
+    }))
+})
 
 module.exports = router;

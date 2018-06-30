@@ -1,5 +1,5 @@
-<div class="container">
-  <div>
+<div class="container-fluid detail-wrapper">
+  <div class="text-center">
     <h1>{{'form.demographics' | translate}}</h1>
   </div>
   <form>
@@ -18,20 +18,20 @@
     <div class="form-group row">
     <label for="" class="col-sm-4 col-form-label">{{'form.gender.value' | translate }}</label>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-        <label class="form-check-label" for="exampleRadios1">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="gender_option1" value="Male" [(ngModel)]="details.gender">
+        <label class="form-check-label" for="gender_option1">
           {{'form.gender.option1' | translate}}
         </label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-        <label class="form-check-label" for="exampleRadios1">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="gender_option2" value="Female" [(ngModel)]="details.gender">
+        <label class="form-check-label" for="gender_option2">
           {{'form.gender.option2' | translate}}
         </label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-        <label class="form-check-label" for="exampleRadios1">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="gender_option3" value="Others" [(ngModel)]="details.gender">
+        <label class="form-check-label" for="gender_option3">
           {{'form.gender.option3' | translate}}
         </label>
       </div>
@@ -45,26 +45,26 @@
     <div class="form-group row">
         <label for="" class="col-sm-4 col-form-label">{{'form.marital_status.value' | translate }}</label>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-            <label class="form-check-label" for="exampleRadios1">
+            <input class="form-check-input" type="radio" name="marital_status" id="marital_status_option1" value="Single" [(ngModel)]="details.marital_status">
+            <label class="form-check-label" for="marital_status_option1">
               {{'form.marital_status.option1' | translate}}
             </label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-            <label class="form-check-label" for="exampleRadios1">
+            <input class="form-check-input" type="radio" name="marital_status" id="marital_status_option2" value="Married" [(ngModel)]="details.marital_status">
+            <label class="form-check-label" for="marital_status_option2">
               {{'form.marital_status.option2' | translate}}
             </label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-            <label class="form-check-label" for="exampleRadios1">
+            <input class="form-check-input" type="radio" name="marital_status" id="marital_status_option3" value="Divorced" [(ngModel)]="details.marital_status">
+            <label class="form-check-label" for="marital_status_option3">
               {{'form.marital_status.option3' | translate}}
             </label>
           </div>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-              <label class="form-check-label" for="exampleRadios1">
+              <input class="form-check-input" type="radio" name="marital_status" id="marital_status_option4" value="Widowed" [(ngModel)]="details.marital_status">
+              <label class="form-check-label" for="marital_status_option4">
                 {{'form.marital_status.option4' | translate}}
               </label>
             </div>
@@ -96,7 +96,7 @@
   </form>
   <div class="row">
     <div class="col-sm-2">
-      <button class="btn btn-success">Save</button>
+      <button class="btn btn-success" (click)="saveDetails()">Save</button>
     </div>
     <div class="col-sm-2">
         <button class="btn btn-primary" (click)="tempNext()">Next</button>

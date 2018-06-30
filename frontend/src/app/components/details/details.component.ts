@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NetworkService } from './../../services/network.service';
 import { DataService } from './../../services/data/data.service';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,11 +13,12 @@ export class DetailsComponent implements OnInit {
   details: any;
   i18n = ["en", "tn", "ma", "pu", "ja", "ke", "or", "bn", "as", "ka", "ap", "gu", "hi"];
   first_name: string;
-  constructor(private data: DataService, 
-    private networkservice: NetworkService, 
+  userDatatojson: any;
+  constructor(private data: DataService,
+    private networkservice: NetworkService,
     private translate: TranslateService,
     private router: Router
-  ) { 
+  ) {
     translate.setDefaultLang('en');
   }
 
@@ -26,13 +27,13 @@ export class DetailsComponent implements OnInit {
     var userData = sessionStorage.getItem('user');
     var lang = sessionStorage.getItem('language');
     this.translate.use(this.i18n[parseInt(lang)]);
-    let userDatatojson = JSON.parse(userData);
+    this.userDatatojson = JSON.parse(userData);
 
 
     this.networkservice.getMessage('/api/login', {
       lang,
-      user_id: userDatatojson.user_id,
-      token: userDatatojson.token
+      user_id: this.userDatatojson.user_id,
+      token: this.userDatatojson.token
     }).subscribe(response => {
       if (response.status == "failure") {
         console.log("response");
@@ -45,6 +46,16 @@ export class DetailsComponent implements OnInit {
 
   tempNext() {
     this.router.navigate(['/quiz']);
+  }
+  saveDetails() {
+    this.networkservice.updateMessag('/api/login', this.details, { token: this.userDatatojson.token })
+    .subscribe(response => {
+      if(response.status == "failure") {
+        //handle error
+      } else {
+        this.data.changeuser(response.data.details);
+      }
+      })
   }
 
 }
